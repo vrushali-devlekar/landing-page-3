@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap");
+
+@font-face {
+  font-family: "Monument Extended";
+  src: url("./monument/MonumentExtended-Regular.otf") format("opentype");
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Monument Extended";
+  src: url("./monument/MonumentExtended-Ultrabold.otf") format("opentype");
+  font-weight: 800; /* UltraBold */
+  font-style: normal;
+}
+
+/* Example usage */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+main {
+  height: 100%;
+  width: 100%;
+  /* background-color: gray; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+main img {
+  height: 490px;
+  width: 330px;
+  object-fit: cover;
+  position: relative;
+  z-index: 99;
+}
+main img,
+.scroll-div2 {
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+main img:hover {
+  transform: scale(1.05) rotateX(10deg) rotateY(-10deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+.scroll-div {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  /* height: 100px; */
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.scroll-div h1,
+.scroll-div2 h1,
+.scroll-div3 h1 {
+  display: inline-block;
+  font-size: 120px;
+  font-family: "Monument Extended", sans-serif;
+  font-weight: 800; /* Will use Ultrabold */
+  margin-right: 30px;
+  text-transform: uppercase;
+}
+
+.scroll-div::-webkit-scrollbar,
+.scroll-div2::-webkit-scrollbar,
+.scroll-div3::-webkit-scrollbar {
+  display: none;
+}
+.scroll-div2 {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  white-space: nowrap;
+  z-index: 100;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.scroll-div h1,
+.scroll-div2 h1 {
+  animation-name: scroll;
+  animation-duration: 1.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.scroll-div3 h1 {
+  animation-name: scroll;
+  animation-duration: 1.8s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+}
+main .scroll-div2 h1 {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  color: transparent;
+}
+.scroll-div3 {
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  /* height: 100px; */
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+#text {
+  font-size: 20px;
+  position: absolute;
+  width: 60%;
+  font-family: "Monument Extended", sans-serif;
+  font-weight: 800; /* Will use Ultrabold */
+  z-index: 101;
+  /* background-color: red; */
+  text-align: center;
+  text-transform: uppercase;
+  top: 10%;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(calc(-100% - 32px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.side-menu {
+  width: 10px;
+  position: absolute;
+  top: 8%;
+  left: 2%;
+  font-family: "Monument Extended", sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  /* vertical text */ /* makes it upright */
+  z-index: 102;
+}
+
+.side-menu p {
+  /* margin: 12px 0; */
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.side-menu .clr {
+  color: #de9e63;
+}
+
+/* .bottom-left {
+  position: absolute;
+  bottom: 5%;
+  left: 2%;
+  font-size: 11px;
+  font-family: "Monument Extended", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 102;
+} */
+
+.bottom-right {
+  position: absolute;
+  bottom: 8%;
+  right: 2%;
+  font-size: 11px;
+  font-family: "Monument Extended", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  z-index: 102;
+}
+
+.body-copy {
+  position: absolute;
+  bottom: 7%;
+  left: 2%;
+  width: 250px;
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: "Monument Extended", sans-serif;
+  text-transform: uppercase;
+  z-index: 102;
+}

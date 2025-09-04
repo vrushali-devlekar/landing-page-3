@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing page 3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <img
+        src="https://tse4.mm.bing.net/th/id/OIP.WAdcIRDSCV8Myly0GwqBqAHaLH?cb=thfc1&w=4480&h=6720&rs=1&pid=ImgDetMain&o=7&rm=3"
+        alt=""
+      />
+      <h1 id="text">
+        We are web designer team and we're going to make some cool stuffs here
+      </h1>
+      <div class="scroll-div">
+        <h1>DESIGN</h1>
+        <h1>DESIGN</h1>
+        <h1>DESIGN</h1>
+        <h1>DESIGN</h1>
+      </div>
+      <div class="scroll-div2">
+        <h1>CREATIVE</h1>
+        <h1>CREATIVE</h1>
+        <h1>CREATIVE</h1>
+        <h1>CREATIVE</h1>
+      </div>
+      <div class="scroll-div3">
+        <h1>DESIGN</h1>
+        <h1>DESIGN</h1>
+        <h1>DESIGN</h1>
+        <h1>DESIGN</h1>
+      </div>
+      <!-- Top Left Vertical Menu -->
+      <div class="side-menu">
+        <p class="clr">▶ PLAY VIDEO</p>
+        <p>ABOUT US</p>
+      </div>
+
+      <!-- Bottom Right Corner -->
+      <div class="bottom-right">
+        <p>SUBSCRIBE FOR OUR NEWSLETTERS</p>
+      </div>
+
+      <!-- Extra Body Copy (left side) -->
+      <div class="body-copy">
+        <p>
+          CREATING GREAT CONTENT THAT REALLY RESONATES WITH YOUR TARGET AUDIENCE
+          REQUIRES YOU TO KNOW WHAT'S GOING ON IN YOUR INDUSTRY.
+        </p>
+      </div>
+    </main>
+
+    <script>
+      const img = document.querySelector("main img");
+      const main = document.querySelector("main");
+      const scrollDiv2 = document.querySelector(".scroll-div2");
+
+      main.addEventListener("mousemove", (e) => {
+        const rect = main.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Calculate rotation for image
+        const rotateY = (x / rect.width - 0.5) * 30;
+        const rotateX = (y / rect.height - 0.5) * -30;
+
+        img.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+
+        // Parallax effect for scroll-div2
+        const offsetX = (x / rect.width - 0.5) * 60; // adjust strength
+        const offsetY = (y / rect.height - 0.5) * 30;
+
+        scrollDiv2.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      });
+
+      main.addEventListener("mouseleave", () => {
+        img.style.transform =
+          "perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)";
+        scrollDiv2.style.transform = "translate(0, 0)";
+      });
+    </script>
+  </body>
+</html>
